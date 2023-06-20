@@ -8,4 +8,10 @@
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
+
+    <style name="AlertDialogCustomTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Customize the positive button color here -->
+        <item name="colorAccent">@color/blue</item>
+    </style>
+
 </resources>

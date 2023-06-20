@@ -12,6 +12,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -47,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Timer timer;
 
+    ImageView emptyImageView;
+    TextView no_data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
         nik = SharedPrefManager.getInstance(this).getNik();
 
         progressDialog = new ProgressDialog(this);
-
+        emptyImageView = findViewById(R.id.emptyImageView);
+        no_data = findViewById(R.id.no_data);
         add_antrian_button = findViewById(R.id.add_antrian_button);
         add_antrian_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 fetchData();
             }
-        }, 0, 1000); // Fetch data setiap 1 detik
+        }, 0, 2000); // Fetch data setiap 2 detik
     }
 
     private void addAntrian() {
@@ -149,6 +156,15 @@ public class MainActivity extends AppCompatActivity {
 
                             DataAdapter adapter = new DataAdapter(MainActivity.this, dataList);
                             recyclerView.setAdapter(adapter);
+
+                            // Check if dataList is empty
+                            if (dataList.isEmpty()) {
+                                emptyImageView.setVisibility(View.VISIBLE);
+                                no_data.setVisibility(View.VISIBLE);
+                            } else {
+                                emptyImageView.setVisibility(View.GONE);
+                                no_data.setVisibility(View.GONE);
+                            }
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }

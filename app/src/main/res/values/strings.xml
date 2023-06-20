@@ -31,4 +31,8 @@
     <string name="no_antrian">No. Antrian</string>
     <string name="buat_antrian">Buat Antrian</string>
     <string name="tanggalAntrian">12:59, 29-01-2023</string>
+    <string name="tidak_ada_antrian">Tidak ada Antrian</string>
+    <string name="batalkan">Batalkan</string>
+    <string name="selesai">Selesai</string>
+    <string name="pending">Pending</string>
 </resources>

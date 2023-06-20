@@ -19,7 +19,7 @@ public class LauncherActivity extends AppCompatActivity {
                 startActivity(new Intent(LauncherActivity.this, LoginActivity.class));
                 finish();
             }
-        }, 3000);
+        }, 2000);
 
     }
 }
