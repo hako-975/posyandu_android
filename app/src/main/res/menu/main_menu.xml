@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menuMain"
-        android:title="@string/antrian" />
+        android:title="@string/refresh" />
 
     <item
         android:id="@+id/menuSettings"
-        android:title="@string/pengaturan" />
+        android:title="@string/info_akun" />
 
     <item
         android:id="@+id/menuLogout"

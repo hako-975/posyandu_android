@@ -11,4 +11,7 @@ public class Constants {
     public static  final String URL_BATALKAN_ANTRIAN = ROOT_URL + "batalkanAntrian.php";
     public static  final String URL_SELESAIKAN_ANTRIAN = ROOT_URL + "selesaikanAntrian.php";
     public static  final String URL_PENDINGKAN_ANTRIAN = ROOT_URL + "pendingkanAntrian.php";
+
+    public static final String URL_DELETE_ALL_ANTRIAN = ROOT_URL + "hapusSemuaAntrian.php";
+
 }

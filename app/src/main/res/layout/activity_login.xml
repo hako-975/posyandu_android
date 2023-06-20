@@ -72,9 +72,20 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:gravity="center"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:textColor="#0645AD"
         android:text="@string/belum_punya_akun_registrasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/forgetPasswordNow"
+        android:textSize="16sp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#0645AD"
+        android:text="Lupa Password?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

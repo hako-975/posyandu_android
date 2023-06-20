@@ -65,23 +65,37 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
         holder.statusAntrianTextView.setTextColor(textColor);
 
-        if (item.getStatusAntrian().equals("Dibatalkan")) {
+        if (SharedPrefManager.getInstance(context).getRole().equals("Administrator")) {
+            if (item.getStatusAntrian().equals("Dibatalkan")) {
+                holder.batalkan_button.setVisibility(View.GONE);
+                holder.selesaikan_button.setVisibility(View.VISIBLE);
+                holder.pendingkan_button.setVisibility(View.VISIBLE);
+            }
+
+            if (item.getStatusAntrian().equals("Selesai")) {
+                holder.selesaikan_button.setVisibility(View.GONE);
+                holder.batalkan_button.setVisibility(View.VISIBLE);
+                holder.pendingkan_button.setVisibility(View.VISIBLE);
+            }
+
+            if (item.getStatusAntrian().equals("Pending")) {
+                holder.pendingkan_button.setVisibility(View.GONE);
+                holder.batalkan_button.setVisibility(View.VISIBLE);
+                holder.selesaikan_button.setVisibility(View.VISIBLE);
+            }
+        } else {
             holder.batalkan_button.setVisibility(View.GONE);
-        } else {
-            holder.batalkan_button.setVisibility(View.VISIBLE);
-        }
-
-        if (item.getStatusAntrian().equals("Selesai")) {
             holder.selesaikan_button.setVisibility(View.GONE);
-        } else {
-            holder.selesaikan_button.setVisibility(View.VISIBLE);
+            holder.pendingkan_button.setVisibility(View.GONE);
+            if (item.getStatusAntrian().equals("Pending")) {
+                if (SharedPrefManager.getInstance(context).getNik().equals(item.getNik())) {
+                    holder.batalkan_button.setVisibility(View.VISIBLE);
+                }
+            } else {
+                holder.batalkan_button.setVisibility(View.GONE);
+            }
         }
 
-        if (item.getStatusAntrian().equals("Pending")) {
-            holder.pendingkan_button.setVisibility(View.GONE);
-        } else {
-            holder.pendingkan_button.setVisibility(View.VISIBLE);
-        }
 
         holder.pendingkan_button.setOnClickListener(new View.OnClickListener() {
             @Override

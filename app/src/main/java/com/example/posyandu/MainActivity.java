@@ -12,17 +12,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -52,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView emptyImageView;
     TextView no_data;
+
+    private boolean userScrolled = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,14 +83,35 @@ public class MainActivity extends AppCompatActivity {
 
         fetchData();
 
+
         // Schedule the timer task to fetch data periodically
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                fetchData();
+                // Check if the user has scrolled down
+                if (!userScrolled) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            fetchData();
+                        }
+                    });
+                }
             }
-        }, 0, 2000); // Fetch data setiap 2 detik
+        }, 0, 2000); // Fetch data every 2 seconds
+
+        // Get reference to your RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
+        // Add a scroll listener to detect user scrolling
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                // Check if the user has manually scrolled to a position other than the top
+                userScrolled = recyclerView.computeVerticalScrollOffset() > 0;
+            }
+        });
     }
 
     private void addAntrian() {
@@ -150,7 +170,8 @@ public class MainActivity extends AppCompatActivity {
                                 dataList.add(new Antrian(
                                         antrian.getString("no_antrian"),
                                         antrian.getString("nama_lengkap"),
-                                        antrian.getString("status_antrian")
+                                        antrian.getString("status_antrian"),
+                                        antrian.getString("nik")
                                 ));
                             }
 
@@ -185,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 

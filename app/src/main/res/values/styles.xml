@@ -13,5 +13,5 @@
         <!-- Customize the positive button color here -->
         <item name="colorAccent">@color/blue</item>
     </style>
-
+    
 </resources>

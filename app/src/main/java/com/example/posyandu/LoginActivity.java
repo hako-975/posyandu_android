@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogin;
     private ProgressDialog progressDialog;
     private TextView registerNow;
+
+    private TextView forgetPasswordNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,21 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        forgetPasswordNow = findViewById(R.id.forgetPasswordNow);
+        forgetPasswordNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://api.whatsapp.com/send?text=Halo Admin Posyandu Anggrek,%0A" +
+                        "%0ASaya lupa kata sandi akun Posyandu Anggrek saya. " +
+                        "Dalam hal ini, saya dengan sukarela mengajukan permohonan untuk menghapus akun Posyandu saya. " +
+                        "Saya berkomitmen untuk melakukan registrasi ulang setelah menerima informasi lebih lanjut tentang proses tersebut dari Admin Posyandu Anggrek.%0A" +
+                        "%0ATerima kasih atas perhatian dan kerjasamanya.%0A" +
+                        "%0AHormat saya,%0A[Nama Lengkap]%0A[NIK]&phone=6287808675313";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
             }
         });
     }

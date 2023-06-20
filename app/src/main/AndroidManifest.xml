@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Material3.Light"
+        android:theme="@style/Theme.Posyandu"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
@@ -20,7 +20,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Material3.Light.NoActionBar">
+            android:theme="@style/Theme.Posyandu.Material3.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,20 +31,20 @@
             android:name=".ProfileActivity"
             android:exported="false"
             android:label="@string/info_akun"
-            android:theme="@style/Theme.Material3.Light" />
+            android:theme="@style/Theme.Posyandu.Material3.Light" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/antrian"
-            android:theme="@style/Theme.Material3.Light" />
+            android:theme="@style/Theme.Posyandu.Material3.Light" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
-            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+            android:theme="@style/Theme.Posyandu.Material3.Light.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar">
+            android:theme="@style/Theme.Posyandu.Material3.Light.NoActionBar">
         </activity>
     </application>
 
