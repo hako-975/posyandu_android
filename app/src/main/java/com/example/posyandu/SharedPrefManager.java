@@ -12,7 +12,7 @@ public class SharedPrefManager {
     private static SharedPrefManager instance;
     private static Context ctx;
 
-    private static final String SHARED_PREF_NAME = "mysharedpref12";
+    private static final String SHARED_PREF_NAME = "mysharedpref";
     private static final String KEY_NIK = "usernik";
     private static final String KEY_NAMA_LENGKAP = "usernamalengkap";
     private static final String KEY_ROLE = "userrole";

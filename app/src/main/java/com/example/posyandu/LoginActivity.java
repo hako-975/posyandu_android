@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogin;
     private ProgressDialog progressDialog;
     private TextView registerNow;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

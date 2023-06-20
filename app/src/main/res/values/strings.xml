@@ -27,4 +27,8 @@
     <string name="title_activity_launcher">LauncherActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="status_antrian">Status Antrian</string>
+    <string name="no_antrian">No. Antrian</string>
+    <string name="buat_antrian">Buat Antrian</string>
+    <string name="tanggalAntrian">12:59, 29-01-2023</string>
 </resources>
