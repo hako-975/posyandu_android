@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String nik;
 
+    private Timer timer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,10 +76,18 @@ public class MainActivity extends AppCompatActivity {
         dataList = new ArrayList<>();
 
         fetchData();
+
+        // Schedule the timer task to fetch data periodically
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                fetchData();
+            }
+        }, 0, 1000); // Fetch data setiap 1 detik
     }
 
-    private void addAntrian()
-    {
+    private void addAntrian() {
         progressDialog.setMessage("Buat Antrian");
         progressDialog.show();
 
@@ -105,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
                         progressDialog.hide();
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
+                Map<String, String> params = new HashMap<>();
                 params.put("nik", nik);
                 return params;
             }
@@ -124,6 +134,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONArray array = new JSONArray(response);
+
+                            // Clear the existing data list before adding new items
+                            dataList.clear();
 
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject antrian = array.getJSONObject(i);
@@ -177,5 +190,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Cancel the timer task to stop fetching data
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 }
