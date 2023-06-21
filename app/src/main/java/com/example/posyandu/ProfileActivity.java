@@ -55,7 +55,7 @@ public class ProfileActivity extends AppCompatActivity {
         hapus_semua_antrian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this, R.style.AlertDialogCustomTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
 
                 builder.setTitle("Konfirmasi");
                 builder.setMessage("Apakah Anda ingin menghapus semua Antrian?");

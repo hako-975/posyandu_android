@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+
                             JSONArray array = new JSONArray(response);
 
                             // Clear the existing data list before adding new items
@@ -187,7 +188,8 @@ public class MainActivity extends AppCompatActivity {
                                 no_data.setVisibility(View.GONE);
                             }
                         } catch (JSONException e) {
-                            throw new RuntimeException(e);
+                            e.printStackTrace();
+                            Toast.makeText(MainActivity.this, "Error parsing JSON data", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },

@@ -100,7 +100,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         holder.pendingkan_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogCustomTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                 builder.setTitle("Konfirmasi");
                 builder.setMessage("Apakah Anda ingin Pendingkan Antrian?");
@@ -125,7 +125,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         holder.batalkan_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogCustomTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                 builder.setTitle("Konfirmasi");
                 builder.setMessage("Apakah Anda ingin membatalkan Antrian?");
@@ -150,7 +150,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         holder.selesaikan_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogCustomTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                 builder.setTitle("Konfirmasi");
                 builder.setMessage("Apakah Anda ingin menyelesaikan Antrian?");

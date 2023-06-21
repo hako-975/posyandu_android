@@ -94,7 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
                             // kode 2 gagal
                             // kode 3 input harus diisi
 
-                            if (jsonObject.getString("kode") == "1") {
+                            if (jsonObject.getInt("kode") == 1) {
                                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 startActivity(intent);
                                 finish();
