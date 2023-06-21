@@ -1,6 +1,5 @@
-package com.example.posyandu;
+package com.hakolab.posyandu;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -14,11 +13,9 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,7 +97,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 finish();
                             }
                         } catch (JSONException e) {
-                            throw new RuntimeException(e);
                         }
                     }
                 },

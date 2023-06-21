@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.posyandu'
+    namespace 'com.hakolab.posyandu'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.posyandu"
+        applicationId "com.hakolab.posyandu"
         minSdk 16
         targetSdk 34
         versionCode 1

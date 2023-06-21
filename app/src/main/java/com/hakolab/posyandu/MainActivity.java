@@ -1,4 +1,4 @@
-package com.example.posyandu;
+package com.hakolab.posyandu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -132,15 +132,12 @@ public class MainActivity extends AppCompatActivity {
                             // kode 2 gagal
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
-                            throw new RuntimeException(e);
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        progressDialog.hide();
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -188,16 +185,12 @@ public class MainActivity extends AppCompatActivity {
                                 no_data.setVisibility(View.GONE);
                             }
                         } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(MainActivity.this, "Error parsing JSON data", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("Volley Error", error.toString());
-                        Toast.makeText(MainActivity.this, "Error fetching data: " + error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
         );

@@ -1,11 +1,7 @@
-package com.example.posyandu;
+package com.hakolab.posyandu;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 
 public class SharedPrefManager {
 

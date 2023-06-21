@@ -1,4 +1,4 @@
-package com.example.posyandu;
+package com.hakolab.posyandu;
 
 public class Antrian {
     private String no_antrian;

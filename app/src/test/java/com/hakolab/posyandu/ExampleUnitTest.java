@@ -1,4 +1,4 @@
-package com.example.posyandu;
+package com.hakolab.posyandu;
 
 import org.junit.Test;
 
